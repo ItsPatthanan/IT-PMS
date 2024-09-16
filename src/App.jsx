@@ -1,18 +1,18 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SignInSide from "./page/login";
-import SignUp from "./page/register";
-import DefaultPage from "./page/default";
-import TracherCard from "./page/tracher";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SignInSide from "./page/signIn";
+import DefaultPage from "./page/default"; // import หน้า SignInSide
+
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<DefaultPage />} />
-        <Route path="/login" element={<SignInSide />} />
-        <Route path="/register" element={<SignUp />} />
-        <Route path="/teacher" element={< TracherCard/>} />
-      </Routes>
-    </BrowserRouter>
+    <Router>
+      <div>
+        {/* แสดง Navbar ตลอดเวลา */}
+        <Routes>
+          <Route path="/" element={<DefaultPage />} /> {/* Home page */}
+          <Route path="/signin" element={<SignInSide />} /> {/* SignInSide */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

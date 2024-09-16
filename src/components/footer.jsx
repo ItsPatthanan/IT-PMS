@@ -37,16 +37,7 @@ const Footer = () => {
         >
           Lampang Technical College
         </Link>
-        <Link
-          href="https://old.lampangtc.ac.th/branch11/"
-          sx={{
-            color: "#3F51B5",
-            textDecoration: "none",
-            "&:hover": { textDecoration: "underline" },
-          }}
-        >
-          Information Technology
-        </Link>
+        
         <Link
           href="https://www.rmutl.ac.th/"
           sx={{
