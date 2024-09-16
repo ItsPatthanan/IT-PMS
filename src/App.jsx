@@ -1,15 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SignInSide from "./components/login";
-import SignUp from "./components/register";
-import StickyFooter from "./components/defPage";
+import SignInSide from "./page/login";
+import SignUp from "./page/register";
+import DefaultPage from "./page/default";
+import TracherCard from "./page/tracher";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<div>Home Page</div>} />
+        <Route path="/" element={<DefaultPage />} />
         <Route path="/login" element={<SignInSide />} />
         <Route path="/register" element={<SignUp />} />
-        <Route path="/defPage" element={<StickyFooter />} />
+        <Route path="/teacher" element={< TracherCard/>} />
       </Routes>
     </BrowserRouter>
   );

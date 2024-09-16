@@ -22,7 +22,7 @@ function Copyright(props) {
     >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        www.itpms.duckdns.net
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -74,8 +74,7 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage:
-              'url("http://www.pixiv.net/en/artworks/122303822")', // Replaced with a random Unsplash image
+            backgroundImage: 'url("src/assets/bg.png")',
             backgroundColor: (t) =>
               t.palette.mode === "light"
                 ? t.palette.grey[50]
@@ -140,7 +139,7 @@ export default function SignInSide() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  <Link href="/resetpass" variant="body2">
                     Forgot password?
                   </Link>
                 </Grid>
