@@ -53,7 +53,7 @@ export default function SignInSide() {
       .then((data) => {
         if (data.status === "ok") {
           localStorage.setItem("token", data.token);
-          window.location.href = "/defPage";
+          window.location.href = "/default";
           alert("Login Successful");
         } else {
           alert("Login Failed");
@@ -144,7 +144,7 @@ export default function SignInSide() {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="/register" variant="body2">
+                  <Link href="/signUp" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>

@@ -13,6 +13,7 @@ const Footer = () => {
         position: "fixed", // Fixed at the bottom
         bottom: 0, // Align to the bottom
         width: "100%", // Full width
+        height: "60px",
         zIndex: 1000, // Make sure it appears on top
       }}
     >

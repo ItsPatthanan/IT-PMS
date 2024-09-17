@@ -16,22 +16,38 @@ function Navbar() {
         backgroundColor: "white",
         boxShadow: "none",
         borderBottom: "1px solid #e0e0e0",
+        position: "fixed",
+        top: 0,
+        width: "100%",
+        height: "60px",
+        zIndex: 1000,
       }}
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* โลโก้ */}
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Typography variant="h4" sx={{ fontWeight: "bold", color: "#000" }}>
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: "bold", color: "#000" }}
+            onClick={() => navigate("/")}
+          >
             <span style={{ color: "#FFC107" }}>IT</span>-PMS
           </Typography>
           <Box sx={{ display: "flex", gap: 3, marginLeft: 3 }}>
-          <Button className="teacher" sx={{ color: "#9e9e9e", textTransform: "none" }}>
-            ข้อมูลอาจารย์
-          </Button>
-          <Button className="department" sx={{ color: "#9e9e9e", textTransform: "none" }}>
-            แผนกเทคโนโลยีสารสนเทศ
-          </Button>
-        </Box>
+            <Button
+              className="teacher"
+              sx={{ color: "#9e9e9e", textTransform: "none" }}
+              onClick={() => navigate("/teacher")}
+            >
+              ข้อมูลอาจารย์
+            </Button>
+            <Button
+              className="department"
+              sx={{ color: "#9e9e9e", textTransform: "none" }}
+            >
+              แผนกเทคโนโลยีสารสนเทศ
+            </Button>
+          </Box>
         </Box>
 
         {/* ปุ่มเข้าสู่ระบบ */}

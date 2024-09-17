@@ -22,7 +22,7 @@ const connection = mysql.createConnection({
 });
 
 // Register Route
-app.post("/register", jsonParser, (req, res) => {
+app.post("/signUp", jsonParser, (req, res) => {
   const { email, password, fname, lname } = req.body;
 
   bcrypt.hash(password, saltRounds, (err, hash) => {
@@ -44,7 +44,7 @@ app.post("/register", jsonParser, (req, res) => {
 });
 
 // Login Route
-app.post("/login", jsonParser, (req, res) => {
+app.post("/signIn", jsonParser, (req, res) => {
   const { email, password } = req.body;
 
   connection.execute(
