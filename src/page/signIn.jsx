@@ -8,7 +8,7 @@ import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import LoginTwoToneIcon from '@mui/icons-material/LoginTwoTone';
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -42,7 +42,7 @@ export default function SignInSide() {
     };
     // Example for making a POST request to an API:
 
-    fetch("http://localhost:3333/login", {
+    fetch("http://localhost:3333/SignIn", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -74,7 +74,7 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url("src/assets/bg.png")',
+            //backgroundImage: 'url("src/assets/bg.png")',
             backgroundColor: (t) =>
               t.palette.mode === "light"
                 ? t.palette.grey[50]
@@ -93,8 +93,8 @@ export default function SignInSide() {
               alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              <LockOutlinedIcon />
+            <Avatar sx={{ m: 5, bgcolor: "#f0a10e" }}>
+              <LoginTwoToneIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
               Sign in

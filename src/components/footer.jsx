@@ -8,13 +8,13 @@ const Footer = () => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "16px",
-        backgroundColor: "#F7F9FC",
+        padding: "5px",
+        backgroundColor: "#f0a10e",
         position: "fixed", // Fixed at the bottom
         bottom: 0, // Align to the bottom
         width: "100%", // Full width
         height: "60px",
-        zIndex: 1000, // Make sure it appears on top
+        zIndex: 100, // Make sure it appears on top
       }}
     >
       <Box sx={{ display: "flex", alignItems: "center" }}>

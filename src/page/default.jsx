@@ -8,7 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import Footer from "../components/footer";
-import RAppBar from "../components/navbar";
+import Navbar from "../components/navbar";
 const columns = [
   { id: "name", label: "Name", minWidth: 170 },
   { id: "code", label: "ISO\u00a0Code", minWidth: 100 },
@@ -73,8 +73,8 @@ export default function DefaultPage() {
 
   return (
     <div>
-      <RAppBar />
-      <Paper sx={{ width: "100%", overflow: "hidden" }}>
+      < Navbar/>
+      <Paper sx={{ width: "100%", marginTop: "60px", overflow: "hidden" }}>
         <TableContainer sx={{ maxHeight: 440 }}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
@@ -130,6 +130,6 @@ export default function DefaultPage() {
 
       {/* Add Footer here */}
       <Footer />
-    </div>
+    </div>  
   );
 }

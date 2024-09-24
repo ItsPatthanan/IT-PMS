@@ -13,7 +13,7 @@ function Navbar() {
     <AppBar
       position="static"
       sx={{
-        backgroundColor: "white",
+        backgroundColor: "#f0a10e",
         boxShadow: "none",
         borderBottom: "1px solid #e0e0e0",
         position: "fixed",
@@ -31,21 +31,26 @@ function Navbar() {
             sx={{ fontWeight: "bold", color: "#000" }}
             onClick={() => navigate("/")}
           >
-            <span style={{ color: "#FFC107" }}>IT</span>-PMS
+            <span style={{ color: "#fafafa" }}>IT</span>-PMS
           </Typography>
           <Box sx={{ display: "flex", gap: 3, marginLeft: 3 }}>
             <Button
-              className="teacher"
-              sx={{ color: "#9e9e9e", textTransform: "none" }}
+              sx={{ color: "#FFFFFF", textTransform: "none" }}
               onClick={() => navigate("/teacher")}
             >
               ข้อมูลอาจารย์
             </Button>
             <Button
-              className="department"
-              sx={{ color: "#9e9e9e", textTransform: "none" }}
+              onClick={() => navigate("/department")}
+              sx={{ color: "#FFFFFF", textTransform: "none" }}
             >
               แผนกเทคโนโลยีสารสนเทศ
+            </Button>
+            <Button
+              onClick={() => navigate("/document")}
+              sx={{ color: "#FFFFFF", textTransform: "none" }}
+            >
+              เอกสารที่เกี่ยวข้อง
             </Button>
           </Box>
         </Box>

@@ -5,8 +5,7 @@ import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
+import HowToRegTwoToneIcon from '@mui/icons-material/HowToRegTwoTone';import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -41,7 +40,7 @@ export default function SignUp() {
       lname: data.get("lastName"),
     };
 
-    fetch("http://localhost:3333/register", {
+    fetch("http://localhost:3333/SignUp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -71,8 +70,8 @@ export default function SignUp() {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
+          <Avatar sx={{ m: 1, bgcolor: "#f0a10e" }}>
+            <HowToRegTwoToneIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up

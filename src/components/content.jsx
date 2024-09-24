@@ -9,7 +9,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 
 const cardData = [
-  { id: 1, title: "Card 1", image: "https://via.placeholder.com/300" },
+  { id: 1, title: "Carddsaf 1", image: "https://via.placeholder.com/300" },
   { id: 2, title: "Card 2", image: "https://via.placeholder.com/300" },
   { id: 3, title: "Card 3", image: "https://via.placeholder.com/300" },
   { id: 4, title: "Card 4", image: "https://via.placeholder.com/300" },
@@ -23,13 +23,14 @@ const cardData = [
 
 export default function FixedContainer() {
   return (
+    
     <React.Fragment>
       <CssBaseline />
       <Container fixed>
         <Box
           sx={{
             paddingTop: "100px",
-            paddingBottom: "60px",
+            paddingBottom: "100px",
             backgroundColor: "#F7F9FC",
             minHeight: "calc(100vh - 60px)",
           }}

@@ -17,8 +17,8 @@ const jsonParser = bodyParser.json();
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "root",
-  database: "it-pms",
+  password: "",
+  database: "",
 });
 
 // Register Route
