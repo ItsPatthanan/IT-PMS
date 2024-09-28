@@ -1,7 +1,7 @@
 import Footer from "../components/footer"
 import Navbar from "../components/navbar"
 import FixedContainer from "../components/content"
-function Teacher() {
+function Teacherinfo() {
   return (
     <div>
       <Navbar />
@@ -11,4 +11,4 @@ function Teacher() {
   )
 }
 
-export default Teacher
+export default Teacherinfo

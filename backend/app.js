@@ -18,7 +18,7 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "",
+  database: "it-pms",
 });
 
 // Register Route
@@ -81,6 +81,15 @@ app.post("/authen", jsonParser, (req, res) => {
   } catch (error) {
     res.json({ status: "error", message: error.message });
   }
+});
+
+// สร้าง API endpoint
+app.get('/api/projects', (req, res) => {
+  const sqlQuery = 'SELECT * FROM project-public'; // เปลี่ยนเป็นชื่อตารางของคุณ
+  connection.query(sqlQuery, (error, results) => {
+    if (error) throw error;
+    res.json(results);
+  });
 });
 
 // Start the server

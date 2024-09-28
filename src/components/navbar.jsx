@@ -36,18 +36,12 @@ function Navbar() {
           <Box sx={{ display: "flex", gap: 3, marginLeft: 3 }}>
             <Button
               sx={{ color: "#FFFFFF", textTransform: "none" }}
-              onClick={() => navigate("/teacher")}
+              onClick={() => navigate("/teacher-info")}
             >
               ข้อมูลอาจารย์
             </Button>
             <Button
-              onClick={() => navigate("/department")}
-              sx={{ color: "#FFFFFF", textTransform: "none" }}
-            >
-              แผนกเทคโนโลยีสารสนเทศ
-            </Button>
-            <Button
-              onClick={() => navigate("/document")}
+              onClick={() => navigate("/document-info")}
               sx={{ color: "#FFFFFF", textTransform: "none" }}
             >
               เอกสารที่เกี่ยวข้อง

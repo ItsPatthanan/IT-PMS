@@ -1,14 +1,14 @@
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
-
-import DefaultPage from "./default";
-function Pagec() {
+import FixedContainer from "../components/content";
+function Documentinfo() {
   return (
     <div>
       <Navbar />
-      <DefaultPage />
+      <FixedContainer />
       <Footer />
     </div>
   );
 }
-export default Pagec;
+
+export default Documentinfo;
