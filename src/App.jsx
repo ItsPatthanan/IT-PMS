@@ -3,7 +3,7 @@ import SignInSide from "./page/signIn";
 import SignUp from "./page/signUp";
 import StudentPage from "./page/studentPage";
 import TeacherPage from "./page/teacherPage";
-import GuestPage from "./page/guestPage";
+import DataTable from "./page/data-table";
 import Document from "./page/document-info";
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <div>
         {/* แสดง Navbar ตลอดเวลา */}
         <Routes>
-          <Route path="/" element={<GuestPage />} /> 
+          <Route path="/" element={<DataTable />} /> 
           <Route path="/signIn" element={<SignInSide />} /> 
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/TeacherPage" element={<TeacherPage />} />
