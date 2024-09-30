@@ -1,25 +1,33 @@
 // DataTable.js
-import { useEffect, useState } from 'react';
-import { DataGrid } from '@mui/x-data-grid';
-import axios from 'axios';
-import { Box, TextField, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
-import Navbar from '../components/navbar';
+import { useEffect, useState } from "react";
+import { DataGrid } from "@mui/x-data-grid";
+import axios from "axios";
+import {
+  Box,
+  TextField,
+  MenuItem,
+  Select,
+  InputLabel,
+  FormControl,
+  Button,
+} from "@mui/material";
+import Navbar from "../components/navbar";
 
 const DataTable = () => {
   const [projects, setProjects] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [filteredProjects, setFilteredProjects] = useState([]);
-  const [searchColumn, setSearchColumn] = useState('project_name_th'); // Default search column
+  const [searchColumn, setSearchColumn] = useState("project_name_th"); // Default search column
 
   // Fetch data from the API
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3333/projects'); // เปลี่ยน URL ตาม API ของคุณ
+        const response = await axios.get("http://localhost:3333/projects"); // เปลี่ยน URL ตาม API ของคุณ
         setProjects(response.data);
         setFilteredProjects(response.data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
 
@@ -29,30 +37,59 @@ const DataTable = () => {
   // Handle search filtering
   useEffect(() => {
     const results = projects.filter((project) =>
-      project[searchColumn]?.toString().toLowerCase().includes(searchTerm.toLowerCase())
+      project[searchColumn]
+        ?.toString()
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase())
     );
     setFilteredProjects(results);
   }, [searchTerm, searchColumn, projects]);
 
   // Define the columns for the DataGrid
   // Define the columns for the DataGrid
-const columns = [
-  { field: 'project_id', headerName: 'รหัสโครงาน', flex: 1 },
-  { field: 'project_name_th', headerName: 'ชื่อโครงงาน ภาษาไทย', flex: 2 },
-  { field: 'project_name_eng', headerName: 'ชื่อโครงงาน ภาษาอังกฤษ', flex: 2 },
-  { field: 'project_type', headerName: 'ประเภทโครงงาน', flex: 1 },
-  { field: 'project_owner', headerName: 'ผู้รับผิดชอบ', flex: 1.5 },
-  { field: 'project_status', headerName: 'สถานะ', flex: 1 },
-  { field: 'project_create_time', headerName: 'เวลาที่สร้าง', flex: 1.5 },
-];
-
+  const columns = [
+    { field: "project_id", headerName: "รหัสโครงาน", flex: 1 },
+    { field: "project_name_th", headerName: "ชื่อโครงงาน ภาษาไทย", flex: 2 },
+    {
+      field: "project_name_eng",
+      headerName: "ชื่อโครงงาน ภาษาอังกฤษ",
+      flex: 2,
+    },
+    { field: "project_type", headerName: "ประเภทโครงงาน", flex: 1 },
+    { field: "project_owner", headerName: "ผู้รับผิดชอบ", flex: 1.5 },
+    { field: "project_status", headerName: "สถานะ", flex: 1 },
+    {
+      field: "actions",
+      headerName: "ดูรายละเอียด",
+      flex: 2,
+      sortable: false,
+      renderCell: (params) => (
+        <>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() =>
+              window.open(
+                `http://localhost:3333/files/view/${params.row.project_id}`,
+                "_blank"
+              )
+            }
+            style={{ marginRight: 8 }}
+          >
+            View PDF
+          </Button>
+          
+        </>
+      ),
+    },
+    { field: "project_create_time", headerName: "เวลาที่สร้าง", flex: 1.5 },
+  ];
 
   return (
-    
-    <Box sx={{ height: 550, width: '100%', mt: 10 }}>
+    <Box sx={{ height: 550, width: "100%", mt: 10 }}>
       <Navbar />
       {/* Search Field and Search Column Selection */}
-      <Box sx={{ display: 'flex', gap: 2, mb: 2 }}>
+      <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
         <FormControl variant="outlined" sx={{ minWidth: 200 }}>
           <InputLabel>ค้นหาตาม</InputLabel>
           <Select
@@ -82,7 +119,6 @@ const columns = [
         columns={columns}
         pageSize={10}
         rowsPerPageOptions={[10]}
-        checkboxSelection
         disableSelectionOnClick
         getRowId={(row) => row.project_id} // Assuming 'project_id' is unique for each row
       />

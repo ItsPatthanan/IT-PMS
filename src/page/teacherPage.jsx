@@ -1,90 +1,112 @@
-// Dashboard.js
-import { Box, Grid, Card, CardContent, Typography, AppBar, Toolbar, Drawer, List, ListItem, ListItemText } from '@mui/material';
 
-const TeacherPage = () => {
+import {
+  Box,
+  CssBaseline,
+  AppBar,
+  Toolbar,
+  Typography,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Container,
+  Grid,
+  Button,
+
+} from '@mui/material';
+import {
+  Dashboard,
+  People,
+  Assessment,
+} from '@mui/icons-material';
+import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
+const drawerWidth = 240;
+
+const handleLogout = (event) => {
+  event.preventDefault();
+  localStorage.removeItem('token');
+  window.location.href = '/'; 
+  
+}
+const AdminDashboard = () => {
   return (
     <Box sx={{ display: 'flex' }}>
-      {/* Side Drawer */}
+      <CssBaseline />
+      <AppBar position="fixed">
+        <Toolbar>
+          <Typography variant="h6" noWrap component="div">
+            Tearcher Dashboard
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <Drawer
         variant="permanent"
         sx={{
-          width: 240,
+          width: drawerWidth,
           flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: 240, boxSizing: 'border-box', backgroundColor: '#1a1a1a', color: '#fff' },
+          '& .MuiDrawer-paper': {
+            width: drawerWidth,
+            boxSizing: 'border-box',
+            backgroundColor: '#2c3e50',
+            color: '#fff',
+          },
         }}
       >
         <Toolbar />
-        <Box sx={{ overflow: 'auto' }}>
-          <List>
-            {['Home', 'Analytics', 'Clients', 'Tasks'].map((text) => (
-              <ListItem button key={text}>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
-        </Box>
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon sx={{ color: '#fff' }}>
+                <Dashboard />
+              </ListItemIcon>
+              <ListItemText primary="เอกสาร" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon sx={{ color: '#fff' }}>
+                <People />
+              </ListItemIcon>
+              <ListItemText primary="ผู้ใช้" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon sx={{ color: '#fff' }}>
+                <AccountCircleRoundedIcon />
+              </ListItemIcon>
+              <ListItemText primary="ข้อมูลอาจารย์" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon sx={{ color: '#fff' }}>
+                <Assessment />
+              </ListItemIcon>
+              <ListItemText primary="เอกสารที่รอตรวจสอบ" />
+            </ListItemButton>
+          </ListItem>
+        </List>
+        <Button onClick={handleLogout} variant="contained" color="primary" sx={{ margin: 2 }}> ออกจากระบบ </Button>
       </Drawer>
-
-      {/* Main Content */}
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, bgcolor: '#ecf0f1', p: 3 }}
+      >
         <Toolbar />
-        {/* App Bar */}
-        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, backgroundColor: '#333' }}>
-          <Toolbar>
-            <Typography variant="h6" noWrap component="div">
-              Dashboard
-            </Typography>
-          </Toolbar>
-        </AppBar>
-
-        {/* Overview Cards */}
-        <Grid container spacing={2} sx={{ mt: 8 }}>
-          <Grid item xs={12} md={3}>
-            <Card sx={{ backgroundColor: '#1a1a1a', color: '#fff' }}>
-              <CardContent>
-                <Typography variant="h6">Users</Typography>
-                <Typography variant="h4">14k</Typography>
-                <Typography variant="body2">Last 30 days</Typography>
-              </CardContent>
-            </Card>
+        <Container>
+          <Typography variant="h4" gutterBottom>
+            Welcome to the Teacher Dashboard
+          </Typography>
+          <Grid container spacing={3}>
+            
           </Grid>
-
-          <Grid item xs={12} md={3}>
-            <Card sx={{ backgroundColor: '#1a1a1a', color: '#fff' }}>
-              <CardContent>
-                <Typography variant="h6">Conversions</Typography>
-                <Typography variant="h4">325</Typography>
-                <Typography variant="body2">Last 30 days</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-
-          <Grid item xs={12} md={3}>
-            <Card sx={{ backgroundColor: '#1a1a1a', color: '#fff' }}>
-              <CardContent>
-                <Typography variant="h6">Event count</Typography>
-                <Typography variant="h4">200k</Typography>
-                <Typography variant="body2">Last 30 days</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-
-          <Grid item xs={12} md={3}>
-            <Card sx={{ backgroundColor: '#1a1a1a', color: '#fff' }}>
-              <CardContent>
-                <Typography variant="h6">Page views</Typography>
-                <Typography variant="h4">1.3M</Typography>
-                <Typography variant="body2">Last 6 months</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-
-        {/* Additional Details */}
-        {/* You can add more grids or components below this line */}
+        </Container>
       </Box>
     </Box>
   );
 };
 
-export default TeacherPage;
+export default AdminDashboard;

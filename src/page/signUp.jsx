@@ -150,6 +150,9 @@ export default function SignUp() {
               >
                 Sign Up
               </Button>
+              <Button sx={{ mb: 2 }} fullWidth variant="outlined" Link href="/">
+                Back
+              </Button>
               <Grid container justifyContent="flex-end">
                 <Grid item>
                   <Link href="/signIn" variant="body2">

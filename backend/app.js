@@ -92,6 +92,16 @@ app.get('/projects', (req, res) => {
   });
 });
 
+app.get('/teachers', (req, res) => {
+  const query = 'SELECT * FROM teacher_info';
+  connection.query(query, (err, results) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.json(results);
+    }
+  });
+});
 // Start the server
 app.listen(3333, () => {
   console.log("CORS-enabled web server listening on port 3333");
